@@ -7,6 +7,7 @@ Secured Elasticsearch and Kibana with [Open Distro for Elasticsearch](https://op
 * [Create new EC2](https://docs.aws.amazon.com/efs/latest/ug/gs-step-one-create-ec2-resources.html) instance as follows.
 * Amazon Machine Image (AMI): `Ubuntu Server 18.04 LTS (HVM), SSD Volume Type`.
 * Instance Type: At least `t2.small`.
+* Associate [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) to your instance.
 * Make sure you can [`ssh`](https://medium.com/@GalarnykMichael/aws-ec2-part-2-ssh-into-ec2-instance-c7879d47b6b2) the new instance.
 ### Troubleshooting
 * `Connection timed out` [Read here ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html#TroubleshootingInstancesConnectionTimeout)
@@ -53,12 +54,14 @@ Feeling lucky? You can [skip the certification generation](#change-passwords) by
 * `docker-compose up` (Ignore all the errors. We haven't finished yet)
 * `docker exec $(docker ps -aqf "name=odfe-node1") /bin/sh /usr/share/elasticsearch/plugins/opendistro_security/tools/hash.sh -p` **[YOUR PASSWORD]**
 * Copy the output hash
+* `docker-compose down -v` *(DON'T SKIP THIS!)*
 ### Set the password
 * For all users *but* `admin` and `kibanaserver` you will be able to change the password throught Kibana.
 * In `internal_users.yml` replace `hash` for users `admin` and `kibanaserver`. You may replace the hash for other users as well.
 * In `custom-kibana.yml` replace `CHANGE-THIS` with the *plain* password of `kibanaserver`.
-* `docker-compose down -v` *(DON'T SKIP THIS!)*
 # Open to the world
+* `docker-compose up -d`
+* `exit`
 * [Allow the EC2 instance inbound traffic](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html) on ports:
     * Kibana: `5601`
     * Elasticsearch: `9200`
