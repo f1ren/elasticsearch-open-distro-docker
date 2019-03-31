@@ -24,4 +24,5 @@ Secured Elasticsearch and Kibana with [Open Distro for Elasticsearch](https://op
 ### Set the password
 * For all users *but* `admin` and `kibanaserver` you will be able to change the password throught Kibana.
 * In `internal_users.yml` replace `hash` for users `admin` and `kibanaserver`. You may replace the hash for other users as well.
-
+* In `custom-kibana.yml` replace `CHANGE-THIS` with the plain password of `kibanaserver`.
+* `docker-compose down -v` (DON'T SKIP THAT!)
