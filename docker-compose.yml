@@ -1,6 +1,7 @@
 version: '3'
 services:
   odfe-node1:
+    restart: always
     image: amazon/opendistro-for-elasticsearch:0.7.1
     container_name: odfe-node1
     environment:
@@ -19,6 +20,7 @@ services:
     networks:
       - odfe-net
   odfe-node2:
+    restart: always
     image: amazon/opendistro-for-elasticsearch:0.7.1
     container_name: odfe-node2
     environment:
@@ -35,6 +37,7 @@ services:
     networks:
       - odfe-net
   kibana:
+    restart: always
     image: amazon/opendistro-for-elasticsearch-kibana:0.7.1
     container_name: odfe-kibana
     ports:
