@@ -1,0 +1,42 @@
+# New password applied
+admin:
+  readonly: true
+  hash: $2y$12$SFNvhLHf7MPCpRCq00o/BuU8GMdcD.7BymhT80YHNISBHsfJwhTou
+  roles:
+    - admin
+  attributes:
+    #no dots allowed in attribute names
+    attribute1: value1
+    attribute2: value2
+    attribute3: value3
+
+# Still using default password: logstash
+logstash:
+  hash: $2y$12$SFNvhLHf7MPCpRCq00o/BuU8GMdcD.7BymhT80YHNISBHsfJwhTou
+  roles:
+    - logstash
+
+# New password applied
+kibanaserver:
+  readonly: true
+  hash: $2y$12$SFNvhLHf7MPCpRCq00o/BuU8GMdcD.7BymhT80YHNISBHsfJwhTou
+
+# Still using default password: kibanaro
+kibanaro:
+  hash: $2y$12$SFNvhLHf7MPCpRCq00o/BuU8GMdcD.7BymhT80YHNISBHsfJwhTou
+  roles:
+    - kibanauser
+    - readall
+
+# Still using default password: readall
+readall:
+  hash: $2y$12$SFNvhLHf7MPCpRCq00o/BuU8GMdcD.7BymhT80YHNISBHsfJwhTou
+  #password is: readall
+  roles:
+    - readall
+
+# Still using default password: snapshotrestore
+snapshotrestore:
+  hash: $2y$12$SFNvhLHf7MPCpRCq00o/BuU8GMdcD.7BymhT80YHNISBHsfJwhTou
+  roles:
+    - snapshotrestore
