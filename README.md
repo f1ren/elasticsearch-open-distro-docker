@@ -58,7 +58,7 @@ Feeling lucky? You can [skip the certification generation](#change-passwords) by
 * `docker-compose up` (Ignore all the errors. We haven't finished yet)
 * `docker exec $(docker ps -aqf "name=odfe-node1") /bin/sh /usr/share/elasticsearch/plugins/opendistro_security/tools/hash.sh -p` **[YOUR PASSWORD]**
 * Copy the output hash
-* `docker-compose down -v` *(DON'T SKIP THIS!)*
+* `docker-compose down -v` *(DON'T SKIP THIS! It's necessary for the change to take affect)*
 ### Set the password
 * For all users *but* `admin` and `kibanaserver` you will be able to change the password throught Kibana.
 * In `internal_users.yml` replace `hash` for users `admin` and `kibanaserver`. You may replace the hash for other users as well.
@@ -72,6 +72,6 @@ Feeling lucky? You can [skip the certification generation](#change-passwords) by
     * Performance Analyzer: `9600`
 # Test
 ## Elasticsearch
-* `curl -XGET --insecure https://`**[instance-ip]**`:9200 -u admin:`[admin-password]
+* `curl -XGET --insecure https://`**[instance-ip]**`:9200 -u admin:`**[admin-password]**
 ## Kibana
 * Open http://**[instance-ip]**:5601/
