@@ -1,5 +1,9 @@
 # What is it?
-Secured Elasticsearch and Kibana with [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/)
+Elasticsearch and Kibana - Probably the cheapest secured production grade cloud setup
+## More details
+* Uses [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/)
+* Role based access management
+* Production ready
 
 # Setup
 ## AWS EC2
