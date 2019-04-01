@@ -72,6 +72,6 @@ Feeling lucky? You can [skip the certification generation](#change-passwords) by
     * Performance Analyzer: `9600`
 # Test
 ## Elasticsearch
-* `curl -XGET --insecure https://`**[instance-ip]**`:9200 -u admin:l7XrAh0X8G711zIZNE8l`
+* `curl -XGET --insecure https://`**[instance-ip]**`:9200 -u admin:`[admin-password]
 ## Kibana
 * Open http://**[instance-ip]**:5601/
