@@ -1,8 +1,8 @@
 # What is it?
 Elasticsearch and Kibana - Probably the cheapest secured production grade cloud setup
 ## More details
+* Contains users, groupd and role based access management
 * Uses [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/)
-* Role based access management
 * Production ready
 
 # Setup
@@ -70,3 +70,8 @@ Feeling lucky? You can [skip the certification generation](#change-passwords) by
     * Kibana: `5601`
     * Elasticsearch: `9200`
     * Performance Analyzer: `9600`
+# Test
+## Elasticsearch
+* `curl -XGET --insecure https://`**[instance-ip]**`:9200 -u admin:l7XrAh0X8G711zIZNE8l`
+## Kibana
+* Open http://**[instance-ip]**:5601/
