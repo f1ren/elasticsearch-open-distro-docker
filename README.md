@@ -28,7 +28,8 @@ Now, [`ssh`](https://medium.com/@GalarnykMichael/aws-ec2-part-2-ssh-into-ec2-ins
 The default operating system limits on `mmap` counts is likely to be too low for Elasticsearch 6.7 ([source](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)). Let's change that:
 * `echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf`
 ## Change certificates
-Feeling lucky? You can [skip the certification generation](#change-passwords) by commenting out the lines that ends with `.pem` in `docker-compose.yml`. Keep in mind that it is less secure though.
+To [skip the certification generation](#change-passwords), comment out the lines that ends with `.pem` in `docker-compose.yml`
+
 ### Create keys and certificates
 * `cd ~/.ssh/`
 * Root Certificate
@@ -40,8 +41,8 @@ Feeling lucky? You can [skip the certification generation](#change-passwords) by
         * `openssl genrsa -out esnode.key 2048`
         * `openssl genrsa -out kirk.key 2048`
     * Certificate signing requests
-        * `openssl req -new -sha256 -key esnode.key -subj "/C=US/ST=CA/O=MyOrg, Inc./CN=mydomain.com" -out esnode.csr`
-        * `openssl req -new -sha256 -key kirk.key -subj "/C=US/ST=CA/O=MyOrg, Inc./CN=mydomain.com" -out kirk.csr`
+        * `openssl req -new -sha256 -key esnode.key -subj "/C=US/ST=CA/O=MyOrg, Inc./CN=`[your-es-domain.com]`" -out esnode.csr`
+        * `openssl req -new -sha256 -key kirk.key -subj "/C=US/ST=CA/O=MyOrg, Inc./CN=[your-es-domain.com]" -out kirk.csr`
     * Certificates
         * `openssl x509 -req -in esnode.csr -CA root-ca.crt -CAkey root-ca.key -CAcreateserial -out esnode.crt -days 500 -sha256`
         * `openssl x509 -req -in kirk.csr -CA root-ca.crt -CAkey root-ca.key -CAcreateserial -out kirk.crt -days 500 -sha256`
