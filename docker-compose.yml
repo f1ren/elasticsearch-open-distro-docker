@@ -27,31 +27,31 @@ services:
       - 9600:9600 # required for Performance Analyzer
     networks:
       - odfe-net
-  odfe-node2:
-    restart: always
-    image: amazon/opendistro-for-elasticsearch:0.7.1
-    container_name: odfe-node2
-    environment:
-      - cluster.name=odfe-cluster
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - discovery.zen.ping.unicast.hosts=odfe-node1
-      - network.host=0.0.0.0
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    volumes:
-      - odfe-data2:/usr/share/elasticsearch/data
-      - ./root-ca.pem:/usr/share/elasticsearch/config/root-ca.pem
-      - ./esnode-2.pem:/usr/share/elasticsearch/config/esnode.pem
-      - ./esnode-2-key.pem:/usr/share/elasticsearch/config/esnode-key.pem
-      - ./kirk.pem:/usr/share/elasticsearch/config/kirk.pem
-      - ./kirk-key.pem:/usr/share/elasticsearch/config/kirk-key.pem
-      - ./custom-elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-      - ./internal_users.yml:/usr/share/elasticsearch/plugins/opendistro_security/securityconfig/internal_users.yml
-    networks:
-      - odfe-net
+        #  odfe-node2:
+        #    restart: always
+        #    image: amazon/opendistro-for-elasticsearch:0.7.1
+        #    container_name: odfe-node2
+        #    environment:
+        #      - cluster.name=odfe-cluster
+        #      - bootstrap.memory_lock=true
+        #      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        #      - discovery.zen.ping.unicast.hosts=odfe-node1
+        #      - network.host=0.0.0.0
+        #    ulimits:
+        #      memlock:
+        #        soft: -1
+        #        hard: -1
+        #    volumes:
+        #      - odfe-data2:/usr/share/elasticsearch/data
+        #      - ./root-ca.pem:/usr/share/elasticsearch/config/root-ca.pem
+        #      - ./esnode-2.pem:/usr/share/elasticsearch/config/esnode.pem
+        #      - ./esnode-2-key.pem:/usr/share/elasticsearch/config/esnode-key.pem
+        #      - ./kirk.pem:/usr/share/elasticsearch/config/kirk.pem
+        #      - ./kirk-key.pem:/usr/share/elasticsearch/config/kirk-key.pem
+        #      - ./custom-elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+        #      - ./internal_users.yml:/usr/share/elasticsearch/plugins/opendistro_security/securityconfig/internal_users.yml
+        #    networks:
+        #      - odfe-net
   kibana:
     restart: always
     image: amazon/opendistro-for-elasticsearch-kibana:0.7.1
