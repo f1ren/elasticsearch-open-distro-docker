@@ -4,7 +4,7 @@ Elasticsearch and Kibana - Probably the cheapest secured production grade cloud 
 * **Secured** - Authentication and role based access management
 * **Many more features** - Since it's [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/) there are many more features for you to explore.
 ## Next steps
-* SSL Certificates - find [here](https://aws.amazon.com/blogs/opensource/add-ssl-certificates-open-distro-for-elasticsearch/)
+* [Add SSL Certificates](https://aws.amazon.com/blogs/opensource/add-ssl-certificates-open-distro-for-elasticsearch/)
 * Data recovery plan
 
 # Setup
