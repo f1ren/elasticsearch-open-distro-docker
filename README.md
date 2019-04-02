@@ -2,8 +2,10 @@
 Elasticsearch and Kibana - Probably the cheapest secured production grade cloud setup
 ## More features
 * **Secured** - Authentication and role based access management
-* **Almost production ready** - Availabe from anywhere. You will need to make a data backup plan those.
 * **Many more features** - Since it's [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/) there are many more features for you to explore.
+## What is missing
+* SSL Certificates
+* Data recovery plan
 
 # Setup
 ## AWS EC2
