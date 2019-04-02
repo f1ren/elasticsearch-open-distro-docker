@@ -41,8 +41,8 @@ To [skip the certification generation](#change-passwords), comment out the lines
         * `openssl genrsa -out esnode.key 2048`
         * `openssl genrsa -out kirk.key 2048`
     * Certificate signing requests
-        * `openssl req -new -sha256 -key esnode.key -subj "/C=US/ST=CA/O=MyOrg, Inc./CN=`[your-es-domain.com]`" -out esnode.csr`
-        * `openssl req -new -sha256 -key kirk.key -subj "/C=US/ST=CA/O=MyOrg, Inc./CN=[your-es-domain.com]" -out kirk.csr`
+        * `openssl req -new -sha256 -key esnode.key -subj "/C=US/ST=CA/O=MyOrg, Inc./CN=`**[your-es-domain.com]**`" -out esnode.csr`
+        * `openssl req -new -sha256 -key kirk.key -subj "/C=US/ST=CA/O=MyOrg, Inc./CN=`**[your-es-domain.com]**`" -out kirk.csr`
     * Certificates
         * `openssl x509 -req -in esnode.csr -CA root-ca.crt -CAkey root-ca.key -CAcreateserial -out esnode.crt -days 500 -sha256`
         * `openssl x509 -req -in kirk.csr -CA root-ca.crt -CAkey root-ca.key -CAcreateserial -out kirk.crt -days 500 -sha256`
