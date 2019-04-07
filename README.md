@@ -1,6 +1,6 @@
-# Self-managed secured and cheap Elasticsearch and Kibana tutorial
+# Secured and cheap Elasticsearch and Kibana tutorial
 
-On AWS, at ~20$ per month (based on [AWS Pricing Calculator](https://calculator.aws/))
+On AWS EC2, at ~20$ per month (estimation based on [AWS Pricing Calculator](https://calculator.aws/)).
 
 ## How can it be?
 [AWS partnered with Netflix and Expedia Group](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/) to create open source distribution of Elasticsearch named “[Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/)”.
@@ -11,6 +11,9 @@ On AWS, at ~20$ per month (based on [AWS Pricing Calculator](https://calculator.
 * **Many more features** - Since it's [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/) there are many more features for you to explore. Here are some great reviews you can read:
    * https://medium.com/@maxy_ermayank/tl-dr-aws-open-distro-elasticsearch-fc642f0e592a
    * https://sematext.com/blog/open-distro-elasticsearch-review/
+
+## Why not Amazon Elasticsearch Service?
+At time of writing (Apr, 2019), Amazon Elasticsearch Service was not as mature as the [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/). It lacked alerting, the security was limited and it was more expensive than the underlying EC2 resources it used. Knowing that, even Amazon backed this open-source project.
 
 # Setup
 ## AWS EC2
