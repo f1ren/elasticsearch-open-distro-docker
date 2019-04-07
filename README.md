@@ -1,6 +1,6 @@
 # Secured and cheap Elasticsearch and Kibana tutorial
 
-On AWS EC2, at ~20$ per month (estimation based on [AWS Pricing Calculator](https://calculator.aws/)).
+On AWS EC2, at ~20$ per month (estimated using [AWS Pricing Calculator](https://calculator.aws/)).
 
 ## How can it be?
 [AWS partnered with Netflix and Expedia Group](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/) to create open source distribution of Elasticsearch named “[Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/)”.
@@ -38,7 +38,7 @@ Now, [`ssh` the new EC2](https://medium.com/@GalarnykMichael/aws-ec2-part-2-ssh-
 The default operating system limits on `mmap` counts is likely to be too low for Elasticsearch 6.7 ([source](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)). Let's change that:
 * `echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf`
 ## Change passwords
-### Gernerate passwords hash
+### Generate passwords hash
 * `docker-compose up` (Ignore all the errors. We haven't finished yet)
 * `docker exec $(docker ps -aqf "name=odfe-node1") /bin/sh /usr/share/elasticsearch/plugins/opendistro_security/tools/hash.sh -p` **[YOUR PASSWORD]**
 * Copy the output hash
