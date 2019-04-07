@@ -6,7 +6,8 @@ On AWS, at ~20$ per month (based on [AWS Pricing Calculator](https://calculator.
 [AWS partnered with Netflix and Expedia Group](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/) to create open source distribution of Elasticsearch named “[Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/)”.
 
 ## More features
-* **Secured** - Authentication and role based access management
+* **Security** - Authentication and role based access management
+* **Alerting** - Get notified when your data meets certain conditions
 * **Many more features** - Since it's [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/) there are many more features for you to explore. Here are some great reviews you can read:
    * https://medium.com/@maxy_ermayank/tl-dr-aws-open-distro-elasticsearch-fc642f0e592a
    * https://sematext.com/blog/open-distro-elasticsearch-review/
