@@ -1,11 +1,15 @@
-# What is it?
-Elasticsearch and Kibana - Probably the cheapest secured production grade cloud setup
+# Secured, self-managed Elasticsearch and Kibana tutorial
+
+On AWS, at ~20$ per month (based on [AWS Pricing Calculator](https://calculator.aws/))
+
+## How can it be?
+[AWS partnered with Netflix and Expedia Group](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/) to create open source distribution of Elasticsearch named “[Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/)”.
+
 ## More features
 * **Secured** - Authentication and role based access management
-* **Many more features** - Since it's [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/) there are many more features for you to explore.
-## Next steps
-* [Add SSL Certificates](https://aws.amazon.com/blogs/opensource/add-ssl-certificates-open-distro-for-elasticsearch/)
-* Data recovery plan
+* **Many more features** - Since it's [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/) there are many more features for you to explore. Here are some great reviews you can read:
+   * https://medium.com/@maxy_ermayank/tl-dr-aws-open-distro-elasticsearch-fc642f0e592a
+   * https://sematext.com/blog/open-distro-elasticsearch-review/
 
 # Setup
 ## AWS EC2
@@ -18,7 +22,7 @@ Elasticsearch and Kibana - Probably the cheapest secured production grade cloud 
 ### Troubleshooting
 * `Connection timed out` [Read here ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html#TroubleshootingInstancesConnectionTimeout)
 
-Now, [`ssh`](https://medium.com/@GalarnykMichael/aws-ec2-part-2-ssh-into-ec2-instance-c7879d47b6b2) the new EC2 instance and do the following:
+Now, [`ssh` the new EC2](https://medium.com/@GalarnykMichael/aws-ec2-part-2-ssh-into-ec2-instance-c7879d47b6b2) instance and do the following:
 
 ## Docker and Docker-Compose
 * `sudo apt install docker.io`
@@ -51,3 +55,7 @@ The default operating system limits on `mmap` counts is likely to be too low for
 * `curl -XGET --insecure https://`**[instance-ip]**`:9200 -u admin:`**[admin-password]**
 ## Kibana
 * Open http://**[instance-ip]**:5601/
+
+# Next steps
+* [Add SSL Certificates](https://aws.amazon.com/blogs/opensource/add-ssl-certificates-open-distro-for-elasticsearch/)
+* Data recovery plan
