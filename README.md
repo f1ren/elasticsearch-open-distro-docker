@@ -13,7 +13,7 @@ On AWS EC2, at ~20$ per month (estimated using [AWS Pricing Calculator](https://
    * https://sematext.com/blog/open-distro-elasticsearch-review/
 
 ## Why not Amazon Elasticsearch Service?
-At time of writing (Apr, 2019), Amazon Elasticsearch Service was not as mature as the [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/). It lacked alerting, the security was limited and it was more expensive than the underlying EC2 resources it used. Knowing that, even Amazon backed this open-source project.
+At the time of writing (Apr 2019), Amazon Elasticsearch Service was not as mature as the [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/). It lacked alerting, the security was limited and it was more expensive than the underlying EC2 resources it used. Knowing that, even Amazon backed this open-source project.
 
 # Setup
 ## AWS EC2
@@ -35,14 +35,14 @@ Now, [`ssh` the new EC2](https://medium.com/@GalarnykMichael/aws-ec2-part-2-ssh-
 * `git clone git@github.com:pineur/elasticsearch-open-distro-docker.git`
 * `cd elasticsearch-open-distro-docker`
 ## Increase limit on `mmap` counts
-The default operating system limits on `mmap` counts is likely to be too low for Elasticsearch 6.7 ([source](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)). Let's change that:
+The default operating system limit on `mmap` counts is likely to be too low for Elasticsearch 6.7 ([source](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)). Let's change that:
 * `echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf`
 ## Change passwords
 ### Generate passwords hash
 * `docker-compose up` (Ignore all the errors. We haven't finished yet)
 * `docker exec $(docker ps -aqf "name=odfe-node1") /bin/sh /usr/share/elasticsearch/plugins/opendistro_security/tools/hash.sh -p` **[YOUR PASSWORD]**
 * Copy the output hash
-* `docker-compose down -v` *(DON'T SKIP THIS! It's necessary for the change to take affect)*
+* `docker-compose down -v` *(DON'T SKIP THIS! It's necessary for the change to take effect)*
 ### Set the password
 * For all users *but* `admin` and `kibanaserver` you will be able to change the password throught Kibana.
 * In `internal_users.yml` replace `hash` for users `admin` and `kibanaserver`. You may replace the hash for other users as well.
