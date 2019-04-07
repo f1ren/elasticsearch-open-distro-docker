@@ -12,6 +12,9 @@ On AWS EC2, at ~20$ per month (estimated using [AWS Pricing Calculator](https://
    * https://medium.com/@maxy_ermayank/tl-dr-aws-open-distro-elasticsearch-fc642f0e592a
    * https://sematext.com/blog/open-distro-elasticsearch-review/
 
+# Alertnatives
+## Why not Elastic Cloud?
+Since the Standard plan does not include all the mentioned features.
 ## Why not Amazon Elasticsearch Service?
 At the time of writing (Apr 2019), Amazon Elasticsearch Service was not as mature as the [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/). It lacked alerting, the security was limited and it was more expensive than the underlying EC2 resources it used. Knowing that, even Amazon backed this open-source project.
 
