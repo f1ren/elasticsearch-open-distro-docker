@@ -65,4 +65,5 @@ The default operating system limit on `mmap` counts is likely to be too low for 
 
 # Next steps
 * [Add SSL Certificates](https://aws.amazon.com/blogs/opensource/add-ssl-certificates-open-distro-for-elasticsearch/)
+* Data retention plan
 * Data recovery plan
