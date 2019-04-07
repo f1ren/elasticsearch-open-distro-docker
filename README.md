@@ -1,4 +1,4 @@
-# Secured, self-managed Elasticsearch and Kibana tutorial
+# Self-managed secured and cheap Elasticsearch and Kibana tutorial
 
 On AWS, at ~20$ per month (based on [AWS Pricing Calculator](https://calculator.aws/))
 
