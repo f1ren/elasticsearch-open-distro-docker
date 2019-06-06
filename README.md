@@ -1,11 +1,22 @@
-# What is it?
-Elasticsearch and Kibana - Probably the cheapest secured production grade cloud setup
+# Secured and cheap Elasticsearch and Kibana tutorial
+
+On AWS EC2, at ~20$ per month (estimated using [AWS Pricing Calculator](https://calculator.aws/)).
+
+## How can it be?
+[AWS partnered with Netflix and Expedia Group](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/) to create open source distribution of Elasticsearch named “[Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/)”.
+
 ## More features
-* **Secured** - Authentication and role based access management
-* **Many more features** - Since it's [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/) there are many more features for you to explore.
-## Next steps
-* [Add SSL Certificates](https://aws.amazon.com/blogs/opensource/add-ssl-certificates-open-distro-for-elasticsearch/)
-* Data recovery plan
+* **Security** - Authentication and role based access management
+* **Alerting** - Get notified when your data meets certain conditions
+* **Many more features** - Since it's [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/) there are many more features for you to explore. Here are some great reviews you can read:
+   * https://medium.com/@maxy_ermayank/tl-dr-aws-open-distro-elasticsearch-fc642f0e592a
+   * https://sematext.com/blog/open-distro-elasticsearch-review/
+
+# Alertnatives
+## Why not Elastic Cloud?
+Since the Standard plan does not include all the mentioned features.
+## Why not Amazon Elasticsearch Service?
+At the time of writing (Apr 2019), Amazon Elasticsearch Service was not as mature as the [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/). It lacked alerting, the security was limited and it was more expensive than the underlying EC2 resources it used. Knowing that, even Amazon backed this open-source project.
 
 # Setup
 ## AWS EC2
@@ -18,7 +29,7 @@ Elasticsearch and Kibana - Probably the cheapest secured production grade cloud 
 ### Troubleshooting
 * `Connection timed out` [Read here ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html#TroubleshootingInstancesConnectionTimeout)
 
-Now, [`ssh`](https://medium.com/@GalarnykMichael/aws-ec2-part-2-ssh-into-ec2-instance-c7879d47b6b2) the new EC2 instance and do the following:
+Now, [`ssh` the new EC2](https://medium.com/@GalarnykMichael/aws-ec2-part-2-ssh-into-ec2-instance-c7879d47b6b2) instance and do the following:
 
 ## Docker and Docker-Compose
 * `sudo apt install docker.io`
@@ -27,14 +38,14 @@ Now, [`ssh`](https://medium.com/@GalarnykMichael/aws-ec2-part-2-ssh-into-ec2-ins
 * `git clone git@github.com:pineur/elasticsearch-open-distro-docker.git`
 * `cd elasticsearch-open-distro-docker`
 ## Increase limit on `mmap` counts
-The default operating system limits on `mmap` counts is likely to be too low for Elasticsearch 6.7 ([source](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)). Let's change that:
+The default operating system limit on `mmap` counts is likely to be too low for Elasticsearch 6.7 ([source](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)). Let's change that:
 * `echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf`
 ## Change passwords
-### Gernerate passwords hash
+### Generate passwords hash
 * `docker-compose up` (Ignore all the errors. We haven't finished yet)
 * `docker exec $(docker ps -aqf "name=odfe-node1") /bin/sh /usr/share/elasticsearch/plugins/opendistro_security/tools/hash.sh -p` **[YOUR PASSWORD]**
 * Copy the output hash
-* `docker-compose down -v` *(DON'T SKIP THIS! It's necessary for the change to take affect)*
+* `docker-compose down -v` *(DON'T SKIP THIS! It's necessary for the change to take effect)*
 ### Set the password
 * For all users *but* `admin` and `kibanaserver` you will be able to change the password throught Kibana.
 * In `internal_users.yml` replace `hash` for users `admin` and `kibanaserver`. You may replace the hash for other users as well.
@@ -51,3 +62,8 @@ The default operating system limits on `mmap` counts is likely to be too low for
 * `curl -XGET --insecure https://`**[instance-ip]**`:9200 -u admin:`**[admin-password]**
 ## Kibana
 * Open http://**[instance-ip]**:5601/
+
+# Next steps
+* [Add SSL Certificates](https://aws.amazon.com/blogs/opensource/add-ssl-certificates-open-distro-for-elasticsearch/)
+* Data retention plan
+* Data recovery plan
