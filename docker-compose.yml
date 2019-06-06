@@ -16,8 +16,10 @@ services:
     volumes:
       - odfe-data1:/usr/share/elasticsearch/data
       - ./root-ca.pem:/usr/share/elasticsearch/config/root-ca.pem
-      - ./esnode-1.pem:/usr/share/elasticsearch/config/esnode.pem
-      - ./esnode-1-key.pem:/usr/share/elasticsearch/config/esnode-key.pem
+        #- ./esnode-1.pem:/usr/share/elasticsearch/config/esnode.pem
+        #- ./esnode-1-key.pem:/usr/share/elasticsearch/config/esnode-key.pem
+      - ./kibana.pem:/usr/share/elasticsearch/config/esnode.pem
+      - ./kibana-key.pem:/usr/share/elasticsearch/config/esnode-key.pem
       - ./kirk.pem:/usr/share/elasticsearch/config/kirk.pem
       - ./kirk-key.pem:/usr/share/elasticsearch/config/kirk-key.pem
       - ./custom-elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
