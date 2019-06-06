@@ -16,6 +16,11 @@ opendistro_security.ssl.http.enabled: true
 opendistro_security.ssl.http.pemcert_filepath: esnode.pem
 opendistro_security.ssl.http.pemkey_filepath: esnode-key.pem
 opendistro_security.ssl.http.pemtrustedcas_filepath: root-ca.pem
+
+http.cors.enabled: true
+http.cors.allow-credentials: true
+http.cors.allow-origin: "*"
+http.cors.allow-headers: X-Requested-With, X-Auth-Token, Content-Type, Content-Length, Authorization, Access-Control-Allow-Headers, Accept
 # opendistro_security.allow_unsafe_democertificates: true
 opendistro_security.allow_default_init_securityindex: true
 opendistro_security.authcz.admin_dn:
