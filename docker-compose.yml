@@ -81,7 +81,7 @@ services:
 
 volumes:
   odfe-data1:
-  odfe-data2:
+  # odfe-data2:
 
 networks:
   odfe-net:
