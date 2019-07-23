@@ -2,7 +2,7 @@ version: '3'
 services:
   odfe-node1:
     restart: always
-    image: amazon/opendistro-for-elasticsearch:0.7.1
+    image: amazon/opendistro-for-elasticsearch:1.0.1
     container_name: odfe-node1
     environment:
       - cluster.name=odfe-cluster
@@ -56,7 +56,7 @@ services:
         #      - odfe-net
   kibana:
     restart: always
-    image: amazon/opendistro-for-elasticsearch-kibana:0.7.1
+    image: amazon/opendistro-for-elasticsearch-kibana:1.0.1
     container_name: odfe-kibana
     ports:
       - 5601:5601
@@ -64,6 +64,7 @@ services:
       - "5601"
     environment:
       ELASTICSEARCH_URL: https://odfe-node1:9200
+      ELASTICSEARCH_HOSTS: https://odfe-node1:9200
       SERVER_SSL_ENABLED: "true"
       SERVER_SSL_KEY: /usr/share/kibana/config/kibana-key.pem
       SERVER_SSL_CERTIFICATE: /usr/share/kibana/config/kibana.pem
