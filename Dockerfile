@@ -1,7 +1,7 @@
 FROM amazon/opendistro-for-elasticsearch:1.0.1
 
-ENV AWS_ACCESS_KEY_ID AKIA2QQDWN2TYLUU4XSY
-ENV AWS_SECRET_ACCESS_KEY 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
+ENV AWS_ACCESS_KEY_ID <access-key>
+ENV AWS_SECRET_ACCESS_KEY <secret-key>
 
 RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch repository-s3
 RUN /usr/share/elasticsearch/bin/elasticsearch-keystore create
